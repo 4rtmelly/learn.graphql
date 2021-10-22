@@ -1,0 +1,29 @@
+type Query {
+  feed: [User!]!
+  readAllPost: [Post!]!
+  readPostId(id: Int): Post
+}
+
+type Mutation {
+  add(firstName: String!, lastName: String!, email: String!, password: String!): User!
+  addPost(authorId: Int!, content: String!): Post!
+  modifyPostId(id: Int, content: String!): Post!
+  deletePostId(id: Int): Post
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
+
+type Post {
+  id: ID!
+  author: User
+  authorId: Int!
+  content: String!
+  
+}
